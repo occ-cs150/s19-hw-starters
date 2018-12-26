@@ -1,2 +1,3 @@
-# s19-hw-starters
-Starter Code for CS 150 Spring 19
+# Spring 2019 Starter Code for CS 150
+Orange Coast College
+Stephen Gilbert
