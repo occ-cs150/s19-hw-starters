@@ -5,10 +5,10 @@
  */
 #include <iostream>
 #include <string>
+extern string ASSIGNMENT;
 using namespace std;
 
-string STUDENT = "WHO ARE YOU?";  // Add your Canvas login name
-extern string ASSIGNMENT;
+string STUDENT = "Put your Canvas ID here";  // Add your Canvas login name
 
 /**
  * One line describing what this program does.
