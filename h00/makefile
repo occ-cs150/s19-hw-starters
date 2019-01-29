@@ -19,11 +19,11 @@ stest: $(EXE)
 	@./$(EXE) $(EXE).tests
 
 test: $(EXE)
-	@git add $(SRC) > /dev/null 2> errors.txt
-	@git commit -m "auto commit `date +"%x %X"`"  > /dev/null 2>> errors.txt
-	@cat errors.txt 2> /dev/null
-	@./$(EXE) -t
-	@rm -rf errors.txt 2> /dev/null
+	@git add $(SRC) > /dev/null 2> errors.txt; true
+	@git commit -m "auto commit `date +"%x %X"`"  > /dev/null 2>> errors.txt; true
+	@cat errors.txt 2> /dev/null; true
+	./$(EXE) -t
+	@rm -f errors.txt 2> /dev/null; true
 
 submit: $(EXE)
 	@./$(EXE) -t 1> /dev/null 2> results.txt
