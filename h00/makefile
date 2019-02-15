@@ -1,5 +1,5 @@
 EXE = h00
-CXX = @clang++
+CXX = @g++
 CXXFLAGS = -ggdb3 -O0 -std=c++14 -Wall -Wextra -Wshadow
 LIBS = $(EXE)
 SRC = $(EXE).cpp
@@ -12,8 +12,14 @@ $(EXE): $(OBJS) makefile
 clean:
 	rm -f core $(EXE) *.o
 
+lint:
+	clang++ --analyze $(EXE).cpp
+
 run: $(EXE)
 	./$(EXE)
+
+debug: $(EXE)
+	debug50 ./$(EXE)
 
 stest: $(EXE)
 	@./$(EXE) $(EXE).tests
@@ -22,8 +28,8 @@ test: $(EXE)
 	@git add $(SRC) > /dev/null 2> errors.txt; true
 	@git commit -m "auto commit `date +"%x %X"`"  > /dev/null 2>> errors.txt; true
 	@cat errors.txt 2> /dev/null; true
-	./$(EXE) -t
-	@rm -f errors.txt 2> /dev/null; true
+	@./$(EXE) -t
+	@rm -rf errors.txt 2> /dev/null; true
 
 submit: $(EXE)
 	@./$(EXE) -t 1> /dev/null 2> results.txt

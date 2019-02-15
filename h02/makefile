@@ -12,6 +12,9 @@ $(EXE): $(OBJS) makefile
 clean:
 	rm -f core $(EXE) *.o
 
+lint:
+	clang++ --analyze $(EXE).cpp
+
 run: $(EXE)
 	./$(EXE)
 

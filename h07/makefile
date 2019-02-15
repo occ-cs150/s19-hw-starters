@@ -1,5 +1,5 @@
 EXE = h07
-CXX = @clang++
+CXX = @g++
 CXXFLAGS = -ggdb3 -O0 -std=c++14 -Wall -Wextra -Wshadow
 LIBS = $(EXE)
 SRC = $(EXE).cpp
@@ -12,8 +12,14 @@ $(EXE): $(OBJS) makefile
 clean:
 	rm -f core $(EXE) *.o
 
+lint:
+	clang++ --analyze $(EXE).cpp
+
 run: $(EXE)
 	./$(EXE)
+
+debug: $(EXE)
+	debug50 ./$(EXE)
 
 stest: $(EXE)
 	./$(EXE)  < test-input
