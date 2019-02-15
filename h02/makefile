@@ -1,5 +1,5 @@
 EXE = h02
-CXX = @clang++
+CXX = @g++
 CXXFLAGS = -ggdb3 -O0 -std=c++14 -Wall -Wextra -Wshadow
 LIBS = $(EXE)
 SRC = $(EXE).cpp
@@ -14,6 +14,9 @@ clean:
 
 run: $(EXE)
 	./$(EXE)
+
+debug: $(EXE)
+	debug50 ./$(EXE)
 
 stest: $(EXE)
 	@./$(EXE) $(EXE).tests
