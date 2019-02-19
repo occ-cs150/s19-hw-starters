@@ -13,7 +13,7 @@ clean:
 	rm -f core $(EXE) *.o
 
 lint:
-	clang++ --analyze $(EXE).cpp
+	clang++ -std=c++14 --analyze $(EXE).cpp
 
 run: $(EXE)
 	./$(EXE)

@@ -1,4 +1,4 @@
-EXE = h06
+EXE = h08
 CXX = @g++
 CXXFLAGS = -ggdb3 -O0 -std=c++14 -Wall -Wextra -Wshadow
 LIBS = $(EXE)
@@ -15,14 +15,14 @@ clean:
 lint:
 	clang++ -std=c++14 --analyze $(EXE).cpp
 
-lint:
-	clang++ --analyze $(EXE).cpp
-
 run: $(EXE)
 	./$(EXE)
 
 debug: $(EXE)
 	debug50 ./$(EXE)
+
+stest: $(EXE)
+	./$(EXE)  < test-input
 
 test: $(EXE)
 	@git add $(SRC) > /dev/null 2> errors.txt; true
